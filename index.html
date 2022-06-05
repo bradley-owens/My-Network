@@ -5,16 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Roboto+Slab:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Login Simulator</title>
   </head>
   <body>
     <div class="page-container">
+      <h1 class="main-title">NetWORKS</h1>
       <div class="main-container">
         <h1 class="login-title">Join My Group!</h1>
         <div class="form-container">
           <input class="input-username input" placeholder="username" />
-          <input class="input-password input" placeholder="pin " />
-          <button id="login" class="login-button">Sign in</button>
+          <input class="input-password input" placeholder="pin" />
+
+          <select class="input" name="Language" id="Language">
+            <option value="" disabled selected>What's your language?</option>
+            <option value="Javascript">Javascript</option>
+            <option value="Python">Python</option>
+            <option value="C++">C++</option>
+            <option value="Java">Java</option>
+            <option value="Not relevant">Not revelant</option>
+          </select>
+          <button id="login" class="login-button">Join</button>
         </div>
 
         <div class="create-login-container">
@@ -23,7 +39,8 @@
         </div>
       </div>
       <div class="user-container">
-        <h1 class="members-title">My Members</h1>
+        <h1 class="members-title">Members</h1>
+        <p class="members-number">0</p>
       </div>
     </div>
 
