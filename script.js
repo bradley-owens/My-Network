@@ -8,6 +8,7 @@ const pin = document.querySelector(".input-password");
 
 const userContainer = document.querySelector(".user-container");
 
+//constructor function to create user object
 const user = function (userName, password) {
   this.userName = userName;
   this.password = password;
@@ -33,4 +34,8 @@ createLogin.addEventListener("click", function () {
   users.classList.add("my-users");
   users.innerText = members;
   userContainer.appendChild(users);
+
+  user.prototype.isMember = "yes";
+
+  console.log(newUser);
 });
