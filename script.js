@@ -38,10 +38,10 @@ createLogin.addEventListener("click", function () {
   userContainer.appendChild(users);
 
   user.prototype.isMember = "yes";
+  console.log(newUser.isMember);
 
   userName.value = "";
   pin.value = "";
 
   memberNumber.innerHTML = createdUsers.length;
-  console.log(newUser);
 });
