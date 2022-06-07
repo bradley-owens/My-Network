@@ -13,12 +13,20 @@ const userContainer = document.querySelector(".user-container");
 const memberNumber = document.querySelector(".members-number");
 
 //constructor function to create user object
-const user = function (userName, password, language) {
-  this.userName = userName;
-  this.password = password;
-  this.language = language;
-};
+// const user = function (userName, password, language) {
+//   this.userName = userName;
+//   this.password = password;
+//   this.language = language;
+// };
 
+//  Using class for created users
+const user = class {
+  constructor(userName, password, language) {
+    this.userName = userName;
+    this.password = password;
+    this.language = language;
+  }
+};
 const createdUsers = [];
 let members;
 
@@ -41,8 +49,7 @@ createLogin.addEventListener("click", function () {
   userContainer.appendChild(users);
 
   //isMember prototype
-  user.prototype.isMember = "yes";
-  console.log(newUser.isMember);
+  user.prototype.isMember = true;
 
   // resetting input values once submitted
   userName.value = "";
