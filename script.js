@@ -12,12 +12,9 @@ const userContainer = document.querySelector(".user-container");
 
 const memberNumber = document.querySelector(".members-number");
 
-//constructor function to create user object
-// const user = function (userName, password, language) {
-//   this.userName = userName;
-//   this.password = password;
-//   this.language = language;
-// };
+let createdUsers = [];
+let members;
+let verifiedPin;
 
 //  Using class for created users
 const user = class {
@@ -27,13 +24,13 @@ const user = class {
     this.language = language;
   }
 };
-const createdUsers = [];
-let members;
 
 createLogin.addEventListener("click", function () {
   //Creates new user
   const newUser = new user(userName.value, pin.value, languageChoice.value);
 
+  console.log(newUser);
+  console.log(createdUsers);
   //Adds to user group
   createdUsers.push(newUser);
 
@@ -59,3 +56,26 @@ createLogin.addEventListener("click", function () {
   // Displaying number of members in DOM
   memberNumber.innerHTML = createdUsers.length;
 });
+
+// Setters for followers in future
+
+// const account = {
+//   owner: 'jonas',
+//   movements: [100, 200, 300, 400],
+
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+
+//   set latest(mov) {
+//     return this.movements.push(mov);
+//   },
+// };
+
+// //get
+// console.log(account.latest);
+
+// // set
+// account.latest = 500;
+
+// console.log(account.latest); // setting 500 at end
