@@ -151,7 +151,7 @@ body {
 
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  row-gap: 3.5rem;
+  row-gap: 4rem;
   column-gap: 1rem;
   margin: 1rem auto 3rem;
   justify-content: center;
@@ -169,11 +169,11 @@ body {
   cursor: pointer;
   box-shadow: 0 20px 40px 0px rgba(0, 0, 0, 0.516);
   transform: translateY(-2rem);
-  transition: all 0.5s;
+  transition: all 1.2s;
 }
 
 .chosen {
-  border: 6px solid yellow;
+  border: 8px solid yellow;
 }
 
 .confirm-container {

@@ -1,20 +1,39 @@
 "use strict";
 
+// VARIABLES //////////////////////////////
+
 const createLogin = document.getElementById("login");
-
 const userName = document.querySelector(".input-username");
-
-const pin = document.querySelector(".input-password");
-
+const userPin = document.querySelector(".input-password");
 const languageChoice = document.querySelector(".input-language");
-
 const userContainer = document.querySelector(".user-container");
-
 const memberNumber = document.querySelector(".members-number");
 
 let createdUsers = [];
 let members;
 let verifiedPin;
+var numbers = /[0-9]/g;
+
+// FUNCTIONS //////////////////////////////
+
+// Reset input
+const resetInput = () => {
+  // resetting input values once submitted
+  userName.value = "";
+  userPin.value = "";
+  languageChoice.value = "";
+};
+
+// Verify Password
+const verifyPassword = function (pin) {
+  if (pin.match(numbers) && pin.length === 4) {
+    verifiedPin = pin;
+  } else {
+    alert("pin must be a four digit number");
+    createLogin.href = "#";
+    resetInput();
+  }
+};
 
 //  Using class for created users
 const user = class {
@@ -26,8 +45,11 @@ const user = class {
 };
 
 createLogin.addEventListener("click", function () {
+  // Password Verfication
+  verifyPassword(userPin.value);
+
   //Creates new user
-  const newUser = new user(userName.value, pin.value, languageChoice.value);
+  const newUser = new user(userName.value, verifiedPin, languageChoice.value);
 
   //Adds to user group
   createdUsers.push(newUser);
@@ -46,10 +68,7 @@ createLogin.addEventListener("click", function () {
   //isMember prototype
   user.prototype.isMember = true;
 
-  // resetting input values once submitted
-  userName.value = "";
-  pin.value = "";
-  languageChoice.value = "";
+  resetInput();
 
   // Displaying number of members in DOM
   memberNumber.innerHTML = createdUsers.length;
