@@ -15,9 +15,8 @@ imgSelect.forEach((selection) => {
 });
 
 confirmImgButton.addEventListener("click", function () {
-  // console.log(chosenImg.id);
-
   console.log(chosenImg);
+
   if (chosenImg.classList == "img-container chosen") {
     //  choosen img is users display imgs
   } else {

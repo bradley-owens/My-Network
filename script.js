@@ -11,8 +11,11 @@ const memberNumber = document.querySelector(".members-number");
 
 let createdUsers = [];
 let members;
+let verifiedUserName;
 let verifiedPin;
-var numbers = /[0-9]/g;
+let numbers = /[0-9]/g;
+let upperCaseLetters = /[A-Z]/g;
+let symbols = "!`@#$ %^&*()+=-[]\\';,./{}|\":<>? ~_";
 
 // FUNCTIONS //////////////////////////////
 
@@ -24,7 +27,16 @@ const resetInput = () => {
   languageChoice.value = "";
 };
 
-// Verify Password
+// Verify Username & Password
+
+const verifyUserName = function (username) {
+  if (!username.match(upperCaseLetters)) {
+    verifiedUserName = username;
+  } else {
+    alert("Username must not contain any uppercase letters");
+    createLogin.href = "#";
+  }
+};
 const verifyPassword = function (pin) {
   if (pin.match(numbers) && pin.length === 4) {
     verifiedPin = pin;
@@ -45,12 +57,15 @@ const user = class {
 };
 
 createLogin.addEventListener("click", function () {
-  // Password Verfication
+  //Verfication
+  verifyUserName(userName.value);
   verifyPassword(userPin.value);
 
   //Creates new user
-  const newUser = new user(userName.value, verifiedPin, languageChoice.value);
+  const newUser = new user(verifiedUserName, verifiedPin, languageChoice.value);
 
+  console.log(newUser);
+  console.log(createdUsers);
   //Adds to user group
   createdUsers.push(newUser);
 
@@ -68,8 +83,8 @@ createLogin.addEventListener("click", function () {
   //isMember prototype
   user.prototype.isMember = true;
 
-  resetInput();
-
   // Displaying number of members in DOM
   memberNumber.innerHTML = createdUsers.length;
+
+  // createLogin.href = "#";
 });
