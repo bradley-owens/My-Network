@@ -60,9 +60,11 @@ const verifyLanguage = function (language) {
 
 //  Using class for created users
 const user = class {
+  //making password a private field
+  #password;
   constructor(userName, password, language) {
     this.userName = userName;
-    this.password = password;
+    this.#password = password;
     this.language = language;
   }
 };
@@ -96,5 +98,5 @@ createLogin.addEventListener("click", function () {
   // Displaying number of members in DOM
   memberNumber.innerHTML = createdUsers.length;
 
-  // createLogin.href = "#";
+  createLogin.href = "#";
 });
