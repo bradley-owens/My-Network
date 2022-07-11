@@ -1,5 +1,3 @@
-"use strict";
-
 // VARIABLES //////////////////////////////
 
 const createLogin = document.getElementById("login");
@@ -10,11 +8,12 @@ const languageChoice = document.querySelector(".input-language");
 const userContainer = document.querySelector(".user-container");
 const memberNumber = document.querySelector(".members-number");
 
-let createdUsers = [];
+export let createdUsers = [];
 let members;
 let verifiedUserName;
 let verifiedPin;
 let verifiedLanguage;
+export let completedUsers;
 let numbers = /[0-9]/g;
 let upperCaseLetters = /[A-Z]/g;
 let symbols = "!`@#$ %^&*()+=-[]\\';,./{}|\":<>? ~_";
@@ -60,7 +59,7 @@ const verifyLanguage = function (language) {
 
 //  Using class for created users
 const user = class {
-  //making password a private field
+  //making password a private field (isntance)
   #password;
   constructor(userName, password, language) {
     this.userName = userName;
@@ -79,6 +78,7 @@ createLogin.addEventListener("click", function () {
   const newUser = new user(verifiedUserName, verifiedPin, verifiedLanguage);
 
   //Adds to user group
+
   createdUsers.push(newUser);
 
   // gets each users name
@@ -98,5 +98,14 @@ createLogin.addEventListener("click", function () {
   // Displaying number of members in DOM
   memberNumber.innerHTML = createdUsers.length;
 
-  createLogin.href = "#";
+  // createLogin.href = "#";
+
+  finaliseUser();
 });
+
+export const finaliseUser = function () {
+  completedUsers.push(createdUsers);
+  return completedUsers;
+};
+
+// console.log(createdUsers);

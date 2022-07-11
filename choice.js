@@ -1,4 +1,4 @@
-"use strict";
+import * as Data from "./script.js";
 
 const imgSelect = document.querySelectorAll(".img-container");
 
@@ -23,3 +23,5 @@ confirmImgButton.addEventListener("click", function () {
     alert("Make sure you select one display picture before confirming!");
   }
 });
+
+console.log(Data.completedUsers);
