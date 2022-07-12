@@ -9,11 +9,12 @@ const userContainer = document.querySelector(".user-container");
 const memberNumber = document.querySelector(".members-number");
 
 export let createdUsers = [];
-let members;
+let newUser;
 let verifiedUserName;
 let verifiedPin;
 let verifiedLanguage;
-export let completedUsers;
+let members;
+//authentication
 let numbers = /[0-9]/g;
 let upperCaseLetters = /[A-Z]/g;
 let symbols = "!`@#$ %^&*()+=-[]\\';,./{}|\":<>? ~_";
@@ -75,7 +76,7 @@ createLogin.addEventListener("click", function () {
   verifyLanguage(userLanguage.value);
 
   //Creates new user
-  const newUser = new user(verifiedUserName, verifiedPin, verifiedLanguage);
+  let newUser = new user(verifiedUserName, verifiedPin, verifiedLanguage);
 
   //Adds to user group
 
@@ -100,12 +101,7 @@ createLogin.addEventListener("click", function () {
 
   // createLogin.href = "#";
 
-  finaliseUser();
+  return createdUsers;
 });
 
-export const finaliseUser = function () {
-  completedUsers.push(createdUsers);
-  return completedUsers;
-};
-
-// console.log(createdUsers);
+export let completedUsers = createdUsers;
